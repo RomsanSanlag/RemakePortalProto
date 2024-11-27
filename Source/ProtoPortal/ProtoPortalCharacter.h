@@ -72,6 +72,12 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void ShootPortalA();
+
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void ShootPortalB();
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;

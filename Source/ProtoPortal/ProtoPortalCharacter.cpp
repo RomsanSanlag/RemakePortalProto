@@ -107,6 +107,17 @@ void AProtoPortalCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
+void AProtoPortalCharacter::ShootPortalA()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, "PortalA");
+}
+
+void AProtoPortalCharacter::ShootPortalB()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Orange, "PortalB");
+}
+
+
 void AProtoPortalCharacter::SetHasRifle(bool bNewHasRifle)
 {
 	bHasRifle = bNewHasRifle;
