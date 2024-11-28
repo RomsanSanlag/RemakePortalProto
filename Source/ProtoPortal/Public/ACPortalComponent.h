@@ -20,6 +20,7 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable, category = Custom)
 	void SpawnPortal(FVector StartLocation, FVector Direction, bool PortalA);
 
 public:

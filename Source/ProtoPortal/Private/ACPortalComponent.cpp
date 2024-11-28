@@ -5,6 +5,8 @@
 
 #include "APortalWall.h"
 #include "CollisionDebugDrawingPublic.h"
+#include "KismetTraceUtils.h"
+#include "Runtime/MovieSceneTracks/Private/MovieSceneTracksCustomAccessors.h"
 
 
 // Sets default values for this component's properties
@@ -39,20 +41,18 @@ void UACPortalComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 
 void UACPortalComponent::SpawnPortal(FVector StartLocation, FVector Direction, bool PortalA)
 {
-	float MaxDistanceSpawnPortal = 1000.f;
-	FVector EndLocation = StartLocation + Direction * MaxDistanceSpawnPortal;
-	TArray<FHitResult> HitResults;
-	
-	DrawLineTraces(GetWorld(),StartLocation,EndLocation,HitResults,1);
+	FHitResult* Hit = new FHitResult();
+	FVector EndLocation = StartLocation + FVector(1000, 0, 0);
 
-	//for(FHitResult HitResult : HitResults)
-	//{
-	//	Cast<FHitResult, AAPortalWall>();
-	//	if (HitResult == AAPortalWall)
-	//	{
-	//		
-	//	}
-	//}
+	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_WorldStatic);
+	bool bHit = false;
+	FHitResult* HitDebug = new FHitResult();
+	DrawDebugLineTraceSingle(GetWorld(),StartLocation, EndLocation,EDrawDebugTrace::Persistent, bHit, *HitDebug, FLinearColor::Blue, FLinearColor::Red, 5);
+	
+	
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, Hit->GetComponent()->GetName());
+
+	//AAPortalWall AAPortalWallActor = Cast<AAPortalWall>();
 }
 
 
