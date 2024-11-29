@@ -21,6 +21,7 @@ class AProtoPortalCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+#pragma region Unreal Default
 	/** Pawn mesh: 1st person view (arms; seen only by self) */
 	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
 	USkeletalMeshComponent* Mesh1P;
@@ -65,21 +66,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Weapon)
 	bool GetHasRifle();
 
-	//UFUNCTION(BlueprintCallable, category = Custom)
-	//void SpawnPortal(FVector StartLocation, FVector EndLocation, bool PortalA);
-
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
-
-	UFUNCTION(BlueprintCallable, Category = Input)
-	void ShootPortalA();
-
-	UFUNCTION(BlueprintCallable, Category = Input)
-	void ShootPortalB();
 
 protected:
 	// APawn interface
@@ -92,5 +84,19 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+# pragma endregion Unreal Default
+
+protected:
+	
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void ShootPortalA();
+
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void ShootPortalB();
+
+public:
+	FVector GetPlayerForwardVector();
+	FVector GetPlayerLocation();
+	
 };
 

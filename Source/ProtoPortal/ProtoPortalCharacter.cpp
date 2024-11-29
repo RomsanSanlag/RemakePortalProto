@@ -108,17 +108,6 @@ void AProtoPortalCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-void AProtoPortalCharacter::ShootPortalA()
-{
-	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, "PortalA");
-}
-
-void AProtoPortalCharacter::ShootPortalB()
-{
-	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Orange, "PortalB");
-}
-
-
 void AProtoPortalCharacter::SetHasRifle(bool bNewHasRifle)
 {
 	bHasRifle = bNewHasRifle;
@@ -129,17 +118,22 @@ bool AProtoPortalCharacter::GetHasRifle()
 	return bHasRifle;
 }
 
-// void AProtoPortalCharacter::SpawnPortal(FVector StartLocation, FVector EndLocation, bool PortalA)
-// {
-// 	FHitResult* Hit = new FHitResult();
-//
-// 	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_WorldStatic);
-// 	bool bHit = false;
-// 	FHitResult* HitDebug = new FHitResult();
-// 	DrawDebugLineTraceSingle(GetWorld(),StartLocation, EndLocation,EDrawDebugTrace::Persistent, bHit, *HitDebug, FLinearColor::Blue, FLinearColor::Red, 5);
-// 	
-// 	
-// 	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, Hit->GetComponent()->GetName());
-//
-// 	//AAPortalWall AAPortalWallActor = Cast<AAPortalWall>();
-// }
+FVector AProtoPortalCharacter::GetPlayerForwardVector()
+{
+	return GetActorForwardVector();
+}
+
+FVector AProtoPortalCharacter::GetPlayerLocation()
+{
+	return GetActorLocation();
+}
+
+void AProtoPortalCharacter::ShootPortalA()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, "PortalA");
+}
+
+void AProtoPortalCharacter::ShootPortalB()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Orange, "PortalB");
+}
