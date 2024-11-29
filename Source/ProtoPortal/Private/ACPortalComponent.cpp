@@ -45,7 +45,7 @@ void UACPortalComponent::SpawnPortal(bool PortalA)
 	FVector EndLocation = GetOwner()->GetActorForwardVector() * 1000 + StartLocation;
 	FHitResult* Hit = new FHitResult();
 
-	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_WorldStatic);
+	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_Visibility);
 	bool bHit = false;
 	FHitResult* HitDebug = new FHitResult();
 	DrawDebugLineTraceSingle(GetWorld(),StartLocation, EndLocation,EDrawDebugTrace::Persistent, bHit, *HitDebug, FLinearColor::Blue, FLinearColor::Red, 5);
