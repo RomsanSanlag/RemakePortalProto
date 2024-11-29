@@ -65,6 +65,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Weapon)
 	bool GetHasRifle();
 
+	//UFUNCTION(BlueprintCallable, category = Custom)
+	//void SpawnPortal(FVector StartLocation, FVector EndLocation, bool PortalA);
+
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);

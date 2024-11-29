@@ -21,7 +21,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable, category = Custom)
-	void SpawnPortal(FVector StartLocation, FVector Direction, bool PortalA);
+	void SpawnPortal(FVector StartLocation, FVector EndLocation, bool PortalA);
 
 public:
 	// Called every frame

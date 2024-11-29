@@ -9,6 +9,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "KismetTraceUtils.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -127,3 +128,18 @@ bool AProtoPortalCharacter::GetHasRifle()
 {
 	return bHasRifle;
 }
+
+// void AProtoPortalCharacter::SpawnPortal(FVector StartLocation, FVector EndLocation, bool PortalA)
+// {
+// 	FHitResult* Hit = new FHitResult();
+//
+// 	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_WorldStatic);
+// 	bool bHit = false;
+// 	FHitResult* HitDebug = new FHitResult();
+// 	DrawDebugLineTraceSingle(GetWorld(),StartLocation, EndLocation,EDrawDebugTrace::Persistent, bHit, *HitDebug, FLinearColor::Blue, FLinearColor::Red, 5);
+// 	
+// 	
+// 	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, Hit->GetComponent()->GetName());
+//
+// 	//AAPortalWall AAPortalWallActor = Cast<AAPortalWall>();
+// }

@@ -39,10 +39,9 @@ void UACPortalComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	// ...
 }
 
-void UACPortalComponent::SpawnPortal(FVector StartLocation, FVector Direction, bool PortalA)
+void UACPortalComponent::SpawnPortal(FVector StartLocation, FVector EndLocation, bool PortalA)
 {
 	FHitResult* Hit = new FHitResult();
-	FVector EndLocation = StartLocation + FVector(1000, 0, 0);
 
 	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_WorldStatic);
 	bool bHit = false;
