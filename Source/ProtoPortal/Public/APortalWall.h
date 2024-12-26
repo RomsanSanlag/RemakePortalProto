@@ -21,6 +21,8 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditInstanceOnly)
 	float WallHeight = 100.f;
 	
+	void TryAddPortal(FVector PortalOrigin, bool PortalA);
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,4 +30,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	FVector ConstainPortalToWall(float PortalY, float PortalZ);
+	float ClampPointToWall(float Point, float WallSize, float PortalRadius);
 };

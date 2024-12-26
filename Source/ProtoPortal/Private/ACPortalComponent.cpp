@@ -48,7 +48,7 @@ void UACPortalComponent::SpawnPortal(bool PortalA)
 	GetWorld()->LineTraceSingleByChannel(*Hit, StartLocation, EndLocation, ECC_Visibility);
 	bool bHit = false;
 	FHitResult* HitDebug = new FHitResult();
-	DrawDebugLineTraceSingle(GetWorld(),StartLocation, EndLocation,EDrawDebugTrace::Persistent, bHit, *HitDebug, FLinearColor::Blue, FLinearColor::Red, 5);
+	DrawDebugLineTraceSingle(GetWorld(),StartLocation, EndLocation,EDrawDebugTrace::ForDuration, bHit, *HitDebug, FLinearColor::Blue, FLinearColor::Red, 5);
 	
 	
 	GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Blue, Hit->GetComponent()->GetName());
