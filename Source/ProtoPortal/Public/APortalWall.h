@@ -20,7 +20,8 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, EditInstanceOnly)
 	float WallHeight = 100.f;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void TryAddPortal(FVector PortalOrigin, bool PortalA);
 	
 protected:
