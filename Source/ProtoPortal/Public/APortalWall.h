@@ -22,8 +22,8 @@ public:
 	float WallHeight = 100.f;
 
 	UFUNCTION(BlueprintCallable)
-	void TryAddPortal(FVector PortalOrigin, bool PortalA);
-	
+	FVector CalculatePortalPosition(FVector PortalOrigin);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

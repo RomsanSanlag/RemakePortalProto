@@ -15,7 +15,7 @@ AAPortalWall::AAPortalWall()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-void AAPortalWall::TryAddPortal(FVector PortalOrigin, bool PortalA)
+FVector AAPortalWall::CalculatePortalPosition(FVector PortalOrigin)
 {
 	//get relative position from world position
 	FVector RelativePortalOrigin = GetTransform().InverseTransformPosition(PortalOrigin);
@@ -24,7 +24,8 @@ void AAPortalWall::TryAddPortal(FVector PortalOrigin, bool PortalA)
 	RelativePortalOrigin.Y = NewRelativePortalOrigin.Y;
 	RelativePortalOrigin.Z = NewRelativePortalOrigin.Z;
 
-	DrawDebugSphere(GetWorld(),GetTransform().TransformPosition(RelativePortalOrigin),20.f,12,UE::Geometry::LinearColors::White3b(),false,3,0,2);
+	return RelativePortalOrigin;
+	//DrawDebugSphere(GetWorld(),GetTransform().TransformPosition(RelativePortalOrigin),20.f,12,UE::Geometry::LinearColors::White3b(),false,3,0,2);
 }
 
 // Called when the game starts or when spawned
